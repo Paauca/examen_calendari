@@ -1,6 +1,8 @@
 import 'package:examen_calendari/editar_esdeveniment.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:examen_calendari/modelCalendari.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -17,22 +19,10 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: MyHomePage(
-        title: "My home page",
+        title: "Calendari de Pau Carmona",
       ),
     );
   }
-}
-
-class Esdeveniment {
-  final DateTime horaInici, horaFinal;
-  final String titol;
-  final String? descripcio;
-
-  Esdeveniment(
-      {required this.horaInici,
-      required this.horaFinal,
-      required this.titol,
-      this.descripcio});
 }
 
 class MyHomePage extends StatefulWidget {
@@ -164,7 +154,7 @@ class EsdevenimentWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       title: Text(
-          "${DateFormat("yyyy-MM-dd HH:mm").format(esdeveniment.horaInici)}: ${esdeveniment.titol}"),
+          "${DateFormat("yyyy-MM-dd HH:mm").format(esdeveniment.horaInici)}: ${esdeveniment.titol} ${esdeveniment.descripcio}"),
     );
   }
 }
